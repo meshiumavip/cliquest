@@ -15,6 +15,7 @@ enum ITEM{
 
 //typedef
 typedef struct status{
+    char name[32];
     int32_t HP;
     int32_t MP;
     int32_t ATT;
@@ -31,5 +32,5 @@ typedef struct player_info{
 }player_info_t;
 
 //プロトタイプ宣言
-int32_t player_info();
+int32_t status_view(player_info_t *player_info);
 #endif

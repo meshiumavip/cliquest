@@ -12,12 +12,20 @@
 int32_t game_init(){
     DEBUG("");
     int32_t ret;
-    status_t player_status = {100, 100, 10, 10, 10, 10};
+    status_t player_status = {"かなちゃん", 100, 100, 10, 10, 10, 10};
     player_info_t player_info = {SOUTH_PORT, 0, WORLD_MAP, player_status};
     ret = scene_title(&player_info);
 }
 
-int32_t scene_disctiptor(list_t *list){
+void name_input(char *name){
+    DEBUG("");
+    char input_name[32];
+    printf("名前を入力してください：");
+    scanf("%s", input_name);
+    strcpy(name, input_name);
+}
+
+int32_t scene_view(list_t *list){
     DEBUG("");
     for(int32_t i =0; i<20 ;i++){
         if(list[i].value == -1){
@@ -46,13 +54,13 @@ int32_t scene_input(int32_t *num, int32_t list_max, list_t *list){
             printf("入力：");
             fgets(str, sizeof(str), stdin);
             if(str[strlen(str)-1] != '\n' ){while( getchar() != '\n');} //stdinに残った5byte以降の文字を回収
-            if(strlen(str) == 1){scene_disctiptor(list); continue;}; //未入力チェック
+            if(strlen(str) == 1){scene_view(list); continue;}; //未入力チェック
             *num=atoi(str);
-            if(*num == 0){scene_disctiptor(list); continue;} //文字列を除外
+            if(*num == 0){scene_view(list); continue;} //文字列を除外
             if(0 <= *num && *num <= list_max){
                 break;
             }
-            scene_disctiptor(list);
+            scene_view(list);
         }
     return ret;
 }
