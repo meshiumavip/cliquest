@@ -6,12 +6,14 @@
 #include "quest_error.h"
 #include "scene.h"
 #include "information.h"
+#include "quest_error.h"
+#include "map.h"
 
 int32_t game_init(){
     DEBUG("");
     int32_t ret;
     status_t player_status = {100, 100, 10, 10, 10, 10};
-    player_info_t player_info = {CENTRAL, 0, player_status};
+    player_info_t player_info = {SOUTH_PORT, 0, WORLD_MAP, player_status};
     ret = scene_title(&player_info);
 }
 

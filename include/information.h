@@ -4,15 +4,6 @@
 #include <stdio.h>
 #include <stdint.h>
 
-//enum
-enum WORLD_MAP{
-    CENTRAL = 100,
-    NORTH,
-    EAST,
-    WEST,
-    SOUTH,
-};
-
 enum ITEM{
     SWORD = 100,
     MITHRILL_SWORD,
@@ -35,12 +26,10 @@ typedef struct status{
 typedef struct player_info{
     int32_t global_location;
     int32_t local_location;
+    int32_t map_tag;
     status_t status;
 }player_info_t;
 
 //プロトタイプ宣言
 int32_t player_info();
-int32_t glocal_map_view();
-int32_t local_map_view();
-
 #endif

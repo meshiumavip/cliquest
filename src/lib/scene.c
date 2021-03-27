@@ -3,6 +3,7 @@
 #include <string.h>
 #include "system.h"
 #include "scene.h"
+#include "map.h"
 
 int32_t scene_title(player_info_t *player_info){
     DEBUG("");
@@ -21,11 +22,7 @@ int32_t scene_prologue(player_info_t *player_info){
     DEBUG("");
     PRINT("勇者の冒険が始まる");
     int32_t ret;
-    list_t list[2] = {
-        {1 , "メニュー", scene_menu},
-        {-1 , "", NULL},
-    };
-    ret = scene_change(list, player_info);
+    scene_menu(player_info);
     return ret;
 }
 
@@ -48,6 +45,8 @@ int32_t scene_menu(player_info_t *player_info){
 
 int32_t scene_map(player_info_t *player_info){
     DEBUG("");
+    map_view(player_info);
+    scene_menu(player_info);
 }
 
 int32_t scene_status(player_info_t *player_info){
