@@ -21,9 +21,5 @@ typedef struct list{
 //func
 int32_t game_init();
 void name_input(char *name);
-int32_t scene_view(list_t *list);
-int32_t scene_selector(list_t *list, int32_t list_max, player_info_t *player_info);
-int32_t scene_input(int32_t *num, int32_t list_max, list_t *list);
-int32_t scene_change(list_t *list, player_info_t *player_info);
 
 #endif
