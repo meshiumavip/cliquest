@@ -5,6 +5,5 @@
 
 void main() {
     int32_t ret;
-    DEBUG("");
     ret = game_init();
 }

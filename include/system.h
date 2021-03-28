@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "information.h"
 
-#define DEBUG(...)  printf("%s:%d %s() ", __FILE__, __LINE__, __func__), printf(__VA_ARGS__), printf("\n")
+#define DEBUG(...)  debug_log(__FILE__, __LINE__, __func__, __VA_ARGS__);
 #define PRINT(...)  printf(__VA_ARGS__), printf("\n")
 #define INPUT(...)  printf("入力："), scanf("%d", &__VA_ARGS__)
 
@@ -21,5 +21,5 @@ typedef struct list{
 //func
 int32_t game_init();
 void name_input(char *name);
-
+int32_t debug_log(char *filename, int32_t line, const char *funcname, char *str);
 #endif

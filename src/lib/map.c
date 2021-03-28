@@ -93,8 +93,7 @@ map_t map_list[10] = {
 };
 
 int32_t map_view(player_info_t *player_info){
-    DEBUG("map_tag:%d", player_info->map_tag);
-    PRINT("---------------------------");
+    DEBUG("");
     PRINT("%s", map_list[player_info->map_tag].map_name);
     for(int32_t i = 0 ; i < 110; i++){
         switch (map_list[player_info->map_tag].field[i]){
@@ -112,8 +111,8 @@ int32_t map_view(player_info_t *player_info){
                 break;
         }
     }
-    PRINT("---------------------------");
     if(player_info->map_tag == WORLD_MAP){
+    PRINT("---------------------------");
         PRINT("@: 街");
         PRINT("+: 道");
     }

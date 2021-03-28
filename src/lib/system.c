@@ -23,9 +23,20 @@ int32_t game_init(){
 }
 
 void name_input(char *name){
-    DEBUG("");
+    debug_log(__FILE__, __LINE__, __func__, "");
     char str[32];
     printf("名前を入力してください：");
     fgets(str, 32, stdin);
     strcpy(name, str);
+}
+
+int32_t debug_log(char *filename, int32_t line, const char *funcname, char *str){
+    FILE *file;
+    if ((file = fopen("cliquest.log" , "a")) == NULL) {
+        printf("ファイルが開けませんでした");
+        return ERROR_FAILUER;
+    }
+    fprintf(file , "%s:%d %s() :%s\n", filename, line, funcname, str);
+    fclose(file);
+    return 0;
 }

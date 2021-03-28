@@ -27,10 +27,11 @@ int32_t item_init(int32_t *player_item){
 
 int32_t item_view(player_info_t *player_info){
     DEBUG("");
+    PRINT("アイテム一覧");
     for(int32_t i=0; i<20; i++){
         if(player_info->item[i] == -1){
             break;
         }
-        PRINT("%d: %s", i, item_table[player_info->item[i]].status.name);
+        PRINT("%d: %s", i+1, item_table[player_info->item[i]].status.name);
     }
 }

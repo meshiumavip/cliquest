@@ -10,6 +10,7 @@
 
 int32_t scene_view(list_t *list){
     DEBUG("");
+    PRINT("---------------------------");
     for(int32_t i =0; i<20 ;i++){
         if(list[i].value == -1){
             break;
@@ -25,6 +26,7 @@ int32_t scene_selector(list_t *list, int32_t list_max, player_info_t *player_inf
     int32_t num;
     char *str;
     scene_input(&num, list_max, list);
+    PRINT("---------------------------");
     list[num-1].next_scene(player_info);
     return ret;
 }
@@ -72,6 +74,7 @@ int32_t scene_title(player_info_t *player_info){
 int32_t scene_prologue(player_info_t *player_info){
     DEBUG("");
     PRINT("勇者の冒険が始まる");
+    PRINT("");
     int32_t ret;
     name_input(player_info->status->name);
     scene_menu(player_info);
