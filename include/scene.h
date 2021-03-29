@@ -26,6 +26,7 @@ int32_t scene_map(player_info_t *player_info);
 int32_t scene_status(player_info_t *player_info);
 int32_t scene_item(player_info_t *player_info);
 int32_t scene_explore(player_info_t *player_info);
+int32_t battle_scene(player_info_t *player_info);
 int32_t scene_move(player_info_t *player_info);
 
 #endif

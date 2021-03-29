@@ -84,13 +84,13 @@ int32_t scene_prologue(player_info_t *player_info){
 int32_t scene_menu(player_info_t *player_info){
     DEBUG("");
     int32_t ret;
-    int32_t input;
-    list_t list[6] = {
-        {1 , "マップ", scene_map},
-        {2 , "ステータス", scene_status},
-        {3 , "アイテム", scene_item},
-        {4 , "探索", scene_explore},
-        {5 , "移動", scene_move},
+    list_t list[7] = {
+        {1 , "全体マップ", scene_map},
+        {2 , "マップ", scene_map},
+        {3 , "ステータス", scene_status},
+        {4 , "アイテム", scene_item},
+        {5 , "探索", scene_explore},
+        {6 , "移動", scene_move},
         {-1 , "", NULL},
     };
     int32_t list_max = sizeof(list) / sizeof(list_t);
@@ -100,7 +100,7 @@ int32_t scene_menu(player_info_t *player_info){
 
 int32_t scene_map(player_info_t *player_info){
     DEBUG("");
-    map_view(player_info);
+    world_map_view(player_info);
     scene_menu(player_info);
 }
 
@@ -117,9 +117,35 @@ int32_t scene_item(player_info_t *player_info){
 }
 
 int32_t scene_explore(player_info_t *player_info){
-    DEBUG("");    
+    DEBUG("");
+    PRINT("敵の気配がする・・・");
+    int32_t ret;
+    list_t list[3] = {
+        {1 , "街の外周", battle_scene},
+        {2 , "地下道", battle_scene},
+        {-1 , "", NULL},
+    };
+    int32_t list_max = sizeof(list) / sizeof(list_t);
+    ret = scene_view(list);
+    ret = scene_selector(list, list_max, player_info);
+}
+
+int32_t battle_scene(player_info_t *player_info){
+    DEBUG("");
 }
 
 int32_t scene_move(player_info_t *player_info){
     DEBUG("");
+    PRINT("どこへ移動する？");
+    int32_t ret;
+    list_t list[5] = {
+        {1 , "北", move_north},
+        {2 , "東", move_east},
+        {3 , "南", move_south},
+        {4 , "西", move_west},
+        {-1 , "", NULL},
+    };
+    int32_t list_max = sizeof(list) / sizeof(list_t);
+    ret = scene_view(list);
+    ret = scene_selector(list, list_max, player_info);
 }

@@ -29,7 +29,6 @@ typedef struct status_buf{
 typedef struct player_info{
     int32_t global_location;
     int32_t local_location;
-    int32_t map_tag;
     status_t *status;
     int32_t *item;
 }player_info_t;

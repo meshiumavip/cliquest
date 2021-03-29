@@ -12,25 +12,33 @@
 typedef struct map{
     char map_name[32];
     int32_t map_tag;
+    int32_t map_type;
     int32_t* field;
 }map_t;
 
 //map tag list
 enum MAP_TAG{
     WORLD_MAP = 0,
+    CENTRAL = 2,
+    NORTH_CITY,
+    SOUTH_PORT,
+    EAST_MOUNTAIN,
+    WEST_DESERT,
+    NORTH_MEADOW,
+    CRISTAL_CAVE,
 };
 
 //world_MAP
-enum WORLD_MAP{
-    CENTRAL = 2,
-    NORTH_MEADOW = 3,
-    EAST_MOUNTAIN = 4,
-    WEST_DESERT = 5,
-    SOUTH_PORT = 6,
-    CRISTAL_CAVE = 7,
+enum MAP_TYPE{
+    CITY = 0,
+    DUNGEON = 1,
 };
 
 //プロトタイプ宣言
+int32_t world_map_view(player_info_t *player_info);
 int32_t map_view(player_info_t *player_info);
-
+int32_t move_north(player_info_t *player_info);
+int32_t move_east(player_info_t *player_info);
+int32_t move_south(player_info_t *player_info);
+int32_t move_west(player_info_t *player_info);
 #endif

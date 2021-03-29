@@ -4,6 +4,7 @@
 #include "system.h"
 
 void main() {
+    DEBUG("");
     int32_t ret;
     ret = game_init();
 }
