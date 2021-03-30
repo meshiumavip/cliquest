@@ -9,7 +9,7 @@
 #include "quest_error.h"
 
 int32_t game_init(){
-    DEBUG("");
+    LOG("");
     int32_t ret;
     status_t player_status = {"", 200, 200, 100, 100, 10, 10, 10, 10};
     int32_t player_item[20];
@@ -23,7 +23,7 @@ int32_t game_init(){
 }
 
 void name_input(char *name){
-    debug_log(__FILE__, __LINE__, __func__, "");
+    LOG("");
     char str[32];
     printf("名前を入力してください：");
     fgets(str, 32, stdin);

@@ -4,6 +4,7 @@
 #include <scene.h>
 #include <map.h>
 #include <color.h>
+#include <quest_error.h>
 
 /*field*/
 int32_t world_map_field[ROW][COL] = {
@@ -52,8 +53,8 @@ map_t map_list[10] = {
     {"クリスタルの洞窟"      , CRISTAL_CAVE      , DUNGEON    , (int32_t *)world_map_field},
 };
 
-int32_t world_map_view(player_info_t *player_info){
-    DEBUG("");
+void world_map_view(player_info_t *player_info){
+    LOG("");
     PRINT("%s", map_list[WORLD_MAP].map_name);
     int32_t field_num;
     for(int32_t i = 0 ; i < 110; i++){
@@ -95,8 +96,8 @@ int32_t world_map_view(player_info_t *player_info){
     PRINT("");
 }
 
-int32_t map_view(player_info_t *player_info){
-    DEBUG("");
+void map_view(player_info_t *player_info){
+    LOG("");
     PRINT("%s", map_list[player_info->global_location].map_name);
     for(int32_t i = 0 ; i < 110; i++){
        int32_t field_num = map_list[player_info->global_location].field[i];
@@ -121,45 +122,80 @@ int32_t map_view(player_info_t *player_info){
 }
 
 int32_t move_north(player_info_t *player_info){
-    DEBUG("");
-    PRINT("北へ移動");
-    player_info->global_location = player_info->global_location - 11;
+    LOG("");
+    int32_t ret;
+    int32_t next_location = player_info->global_location - 11;
+    ret = worldmap_location_check(player_info, next_location);
+    if(ret == ERROR_SUCCESS){
+        PRINT("北へ移動");
+        player_info->global_location = next_location;
+    }
     list_t list[2] = {
         {1 , "menu", scene_menu},
         {-1 , "", NULL},
     };
     scene_change(list, player_info);
+    return ret;
 }
 
 int32_t move_east(player_info_t *player_info){
-    DEBUG("");
-    PRINT("東へ移動");
-    player_info->global_location = player_info->global_location + 1;
+    LOG("");
+    int32_t ret;
+    int32_t next_location = player_info->global_location + 1;
+    ret = worldmap_location_check(player_info, next_location);
+    if(ret == ERROR_SUCCESS){
+        PRINT("東へ移動");
+        player_info->global_location = next_location;
+    }
     list_t list[2] = {
         {1 , "menu", scene_menu},
         {-1 , "", NULL},
     };
     scene_change(list, player_info);
+    return ret;
 }
 
 int32_t move_south(player_info_t *player_info){
-    DEBUG("");
-    PRINT("南へ移動");
-    player_info->global_location = player_info->global_location + 11;
+    LOG("");
+    int32_t ret;
+    int32_t next_location = player_info->global_location + 11;
+    ret = worldmap_location_check(player_info, next_location);
+    if(ret == ERROR_SUCCESS){
+        PRINT("南へ移動");
+        player_info->global_location = next_location;
+    }
     list_t list[2] = {
         {1 , "menu", scene_menu},
         {-1 , "", NULL},
     };
     scene_change(list, player_info);
+    return ret;
 }
 
 int32_t move_west(player_info_t *player_info){
-    DEBUG("");
-    PRINT("西へ移動");
-    player_info->global_location = player_info->global_location - 1;
+    LOG("");
+    int32_t ret;
+    int32_t next_location = player_info->global_location - 1;
+    ret = worldmap_location_check(player_info, next_location);
+    if(ret == ERROR_SUCCESS){
+        PRINT("西へ移動");
+        player_info->global_location = next_location;
+    }
     list_t list[2] = {
         {1 , "menu", scene_menu},
         {-1 , "", NULL},
     };
     scene_change(list, player_info);
+    return ret;
+}
+
+int32_t worldmap_location_check(player_info_t *player_info, int32_t next_location){
+    LOG("");
+    int32_t ret = ERROR_SUCCESS;
+    if(map_list[WORLD_MAP].field[next_location] == OPEN_SPACE){
+        PRINT("行き止まりで移動できなかった。\n地図を確認しよう。");
+        ret = ERROR_FAILUER;
+        return ret;
+    }
+    return ret;
 }

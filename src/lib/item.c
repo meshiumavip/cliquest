@@ -19,14 +19,14 @@ equipment_table_t equipment_table[2] = {
 };
 
 int32_t item_init(int32_t *player_item){
-    DEBUG("");
+    LOG("");
     for(int32_t i=0; i<=20; i++){
         player_item[i] = -1;
     }
 }
 
 int32_t item_view(player_info_t *player_info){
-    DEBUG("");
+    LOG("");
     PRINT("アイテム一覧");
     for(int32_t i=0; i<20; i++){
         if(player_info->item[i] == -1){

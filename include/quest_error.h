@@ -6,7 +6,7 @@
 
 //define
 #define ERROR_SUCCESS 0
-#define ERROR_FAILUER 0
+#define ERROR_FAILUER 1
 
 //typedef
 typedef struct error{

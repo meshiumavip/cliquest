@@ -4,7 +4,7 @@
 #include "system.h"
 
 void main() {
-    DEBUG("");
+    LOG("");
     int32_t ret;
     ret = game_init();
 }

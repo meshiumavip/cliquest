@@ -35,8 +35,9 @@ enum MAP_TYPE{
 };
 
 //プロトタイプ宣言
-int32_t world_map_view(player_info_t *player_info);
-int32_t map_view(player_info_t *player_info);
+int32_t worldmap_location_check(player_info_t *player_info, int32_t next_location);
+void world_map_view(player_info_t *player_info);
+void map_view(player_info_t *player_info);
 int32_t move_north(player_info_t *player_info);
 int32_t move_east(player_info_t *player_info);
 int32_t move_south(player_info_t *player_info);

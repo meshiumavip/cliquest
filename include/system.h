@@ -5,7 +5,8 @@
 #include <stdint.h>
 #include "information.h"
 
-#define DEBUG(...)  debug_log(__FILE__, __LINE__, __func__, __VA_ARGS__)
+#define LOG(...)  debug_log(__FILE__, __LINE__, __func__, __VA_ARGS__)
+#define DEBUG(...)  printf("%s:%d %s", __FILE__, __LINE__, __func__), printf(__VA_ARGS__)
 #define PRINT(...)  printf(__VA_ARGS__), printf("\n")
 #define INPUT(...)  printf("入力："), scanf("%d", &__VA_ARGS__)
 
