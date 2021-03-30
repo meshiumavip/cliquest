@@ -53,6 +53,12 @@ map_t map_list[10] = {
     {"クリスタルの洞窟"      , CRISTAL_CAVE      , DUNGEON    , (int32_t *)world_map_field},
 };
 
+//list
+list_t menu_list[2] = {
+    {1 , "menu", scene_menu},
+    {-1 , "", NULL},
+};
+
 void world_map_view(player_info_t *player_info){
     LOG("");
     PRINT("%s", map_list[WORLD_MAP].map_name);
@@ -130,11 +136,7 @@ int32_t move_north(player_info_t *player_info){
         PRINT("北へ移動");
         player_info->global_location = next_location;
     }
-    list_t list[2] = {
-        {1 , "menu", scene_menu},
-        {-1 , "", NULL},
-    };
-    scene_change(list, player_info);
+    scene_change(menu_list, player_info);
     return ret;
 }
 
@@ -147,11 +149,7 @@ int32_t move_east(player_info_t *player_info){
         PRINT("東へ移動");
         player_info->global_location = next_location;
     }
-    list_t list[2] = {
-        {1 , "menu", scene_menu},
-        {-1 , "", NULL},
-    };
-    scene_change(list, player_info);
+    scene_change(menu_list, player_info);
     return ret;
 }
 
@@ -164,11 +162,7 @@ int32_t move_south(player_info_t *player_info){
         PRINT("南へ移動");
         player_info->global_location = next_location;
     }
-    list_t list[2] = {
-        {1 , "menu", scene_menu},
-        {-1 , "", NULL},
-    };
-    scene_change(list, player_info);
+    scene_change(menu_list, player_info);
     return ret;
 }
 
@@ -181,11 +175,7 @@ int32_t move_west(player_info_t *player_info){
         PRINT("西へ移動");
         player_info->global_location = next_location;
     }
-    list_t list[2] = {
-        {1 , "menu", scene_menu},
-        {-1 , "", NULL},
-    };
-    scene_change(list, player_info);
+    scene_change(menu_list, player_info);
     return ret;
 }
 
