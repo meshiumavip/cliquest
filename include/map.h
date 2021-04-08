@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include "player.h"
 
 #define ROW 10
 #define COL 11

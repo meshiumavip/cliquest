@@ -3,11 +3,14 @@
 
 #include <stdio.h>
 #include <stdint.h>
-#include "information.h"
+#include "player.h"
 
-#define LOG(...)  debug_log(__FILE__, __LINE__, __func__, __VA_ARGS__)
-#define DEBUG(...)  printf("%s:%d %s", __FILE__, __LINE__, __func__), printf(__VA_ARGS__)
-#define PRINT(...)  printf(__VA_ARGS__), printf("\n")
+#define LOG(...)        debug_log(__FILE__, __LINE__, __func__, __VA_ARGS__)
+#define DEBUG(...)      printf("%s:%d %s", __FILE__, __LINE__, __func__), printf(__VA_ARGS__)
+#define PRINT(...)      printf(__VA_ARGS__), printf("\n")
+#define SCENE(...)      printf("----------"), printf(__VA_ARGS__), printf("----------\n")
+#define MESSAGE(...)    printf("***************************\n"), printf(__VA_ARGS__), printf("\n"), printf("***************************\n")
+
 #define INPUT(...)  printf("入力："), scanf("%d", &__VA_ARGS__)
 
 //typedef
