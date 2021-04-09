@@ -17,9 +17,11 @@ item_info_t item_info[20] = {
 
 int32_t item_init(int32_t *player_item){
     LOG("");
+    int32_t ret = ERROR_SUCCESS;
     for(int32_t i=0; i<=20; i++){
         player_item[i] = -1;
     }
+    return ret;
 }
 
 int32_t item_view(player_info_t *player_info){

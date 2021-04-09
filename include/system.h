@@ -14,7 +14,7 @@
 #define INPUT(...)  printf("入力："), scanf("%d", &__VA_ARGS__)
 
 //typedef
-typedef int32_t (*SCENE)(player_info_t *player_info);
+typedef int32_t (*SCENE)(player_info_t *);
 
 typedef struct list{
     int32_t value;

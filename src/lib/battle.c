@@ -13,12 +13,13 @@ list_t battle_action[2] = {
 };
 
 int32_t encount(){
+    LOG("");
     int32_t ret = ERROR_SUCCESS;
     encount_t encount;
     srand((uint32_t)time(NULL));
     for(int32_t i=0; i<10; i++){
         int32_t rand_num = rand() % 10;
-        DEBUG(""); PRINT("rand_num %d", rand_num);
+        PRINT("rand_num %d : %d", i, rand_num);
         if(rand_num > 0){
             
         }
@@ -40,6 +41,7 @@ int32_t battle_scene(player_info_t *player_info){
 }
 
 int32_t attack(player_info_t *player_info){
-
+    LOG("");
+    DEBUG("");
 }
 
