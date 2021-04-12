@@ -7,6 +7,11 @@
 #include "player.h"
 #include "quest_error.h"
 
+//define
+#define ENEMY_TABLE 20
+#define ENCOUNT_TABLE 10
+#define ENCOUNT_ENEMY 3
+
 //typedef
 typedef struct enemy_status{
     int32_t MAX_HP;
@@ -39,13 +44,9 @@ typedef struct enemy_table{
 typedef struct encount_table{
     int32_t global_location;
     int32_t enemy1;
-    int32_t encount_rate1;
     int32_t enemy2;
-    int32_t encount_rate2;
     int32_t enemy3;
-    int32_t encount_rate3;
 }encount_table_t;
-
 
 //enum
 enum enemy{
@@ -59,5 +60,8 @@ enum enemy{
     DRAGON,
     CRYSTAL_DRAGON,
 };
+
+//プロトタイプ宣言
+int32_t encount(player_info_t *player_info);
 
 #endif

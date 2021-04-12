@@ -10,8 +10,7 @@
 #define PRINT(...)      printf(__VA_ARGS__), printf("\n")
 #define SCENE(...)      printf("----------"), printf(__VA_ARGS__), printf("----------\n")
 #define MESSAGE(...)    printf("***************************\n"), printf(__VA_ARGS__), printf("\n"), printf("***************************\n")
-
-#define INPUT(...)  printf("入力："), scanf("%d", &__VA_ARGS__)
+#define INPUT(...)      printf("入力："), scanf("%d", &__VA_ARGS__)
 
 //typedef
 typedef int32_t (*SCENE)(player_info_t *);

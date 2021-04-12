@@ -18,7 +18,6 @@ void scene_view(list_t *list);
 int32_t scene_selector(list_t *list, int32_t list_max, player_info_t *player_info);
 void scene_input(int32_t *num, int32_t list_max, list_t *list);
 int32_t scene_change(list_t *list, player_info_t *player_info);
-
 int32_t scene_prologue(player_info_t *player_info);
 int32_t scene_title(player_info_t *player_info);
 int32_t scene_menu(player_info_t *player_info);
